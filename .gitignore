@@ -1,0 +1,12 @@
+# File Kredensial Sensitif (JANGAN PERNAH DIUNGGAH)
+google-sheets-api.json
+
+# Folder Virtual Environment
+venv/
+
+# Folder Cache Python & Pytest
+__pycache__/
+.pytest_cache/
+
+# File Data Sementara
+.coverage
