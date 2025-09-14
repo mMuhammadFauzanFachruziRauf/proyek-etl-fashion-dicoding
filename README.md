@@ -32,7 +32,7 @@ Ikuti langkah-langkah di bawah ini untuk menjalankan pipeline ETL di lingkungan 
 1. Clone Repositori
 Pertama, clone repositori ini ke mesin lokal Anda menggunakan Git.
 
-git clone [https://github.com/NAMA_USER_ANDA/proyek-etl-fashion-dicoding.git](https://github.com/mMuhammadFauzanFachruziRauf/proyek-etl-fashion-dicoding)
+git clone [https://github.com/mMuhammadFauzanFachruziRauf/proyek-etl-fashion-dicoding](https://github.com/mMuhammadFauzanFachruziRauf/proyek-etl-fashion-dicoding)
 cd proyek-etl-fashion-dicoding
 
 2. Buat dan Aktifkan Virtual Environment
