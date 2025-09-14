@@ -1,78 +1,147 @@
+# 🚀 Proyek Pipeline ETL Sederhana - Dicoding
+
 <div align="center">
-<h1 align="center">🚀 Proyek Pipeline ETL Sederhana - Dicoding</h1>
-<p align="center">
+
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15%2B-blue?logo=postgresql)
+![Google Sheets](https://img.shields.io/badge/Google%20Sheets-API-orange?logo=google-sheets)
+![Coverage](https://img.shields.io/badge/Test%20Coverage-80%25%2B-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 Sebuah pipeline ETL (Extract, Transform, Load) end-to-end yang dibangun dengan Python sebagai proyek akhir untuk kelas "Belajar Fundamental Pemrosesan Data" dari Dicoding.
-</p>
-</div>
 
-<div align="center">
+[📖 Dokumentasi](#-dokumentasi) • [🚀 Cara Menggunakan](#-cara-menggunakan) • [🧪 Testing](#-testing) • [📁 Struktur Proyek](#-struktur-proyek)
 
 </div>
 
-✨ Fitur Utama
-Proyek ini mencakup seluruh alur kerja ETL dari ekstraksi data hingga pemuatan ke berbagai repositori data.
+## ✨ Fitur Utama
 
-📄 Extract: Melakukan web scraping data produk dari situs e-commerce fiktif (fashion-studio.dicoding.dev) menggunakan requests dan BeautifulSoup.
+- **📄 Extract**: Web scraping data produk dari situs e-commerce fiktif menggunakan Requests dan BeautifulSoup
+- **🔄 Transform**: Pembersihan dan transformasi data dengan Pandas
+- **💾 Load**: Penyimpanan data ke berbagai repositori:
+  - File CSV lokal
+  - Google Sheets API
+  - Database PostgreSQL
+- **🧪 Testing**: Unit test komprehensif dengan coverage >80%
+- **⚡ Otomatisasi**: Pipeline ETL terintegrasi penuh
 
-🔄 Transform: Membersihkan dan mentransformasi data mentah menjadi dataset yang siap analisis. Proses ini mencakup konversi harga ke format numerik dan penyesuaian tipe data untuk konsistensi.
+## 🚀 Cara Menggunakan
 
-💾 Load: Memuat data yang telah bersih ke dalam tiga repositori berbeda untuk fleksibilitas penyimpanan dan analisis:
+### 1. Kloning Repositori
 
-File CSV: Disimpan secara lokal sebagai products.csv.
-
-Google Sheets: Dimuat ke lembar kerja Google untuk kolaborasi dan visualisasi mudah.
-
-Database PostgreSQL: Dimasukkan ke dalam tabel database relasional untuk kueri yang lebih kompleks.
-
-🧪 Testing: Dilengkapi dengan unit test menggunakan pytest untuk memastikan setiap modul (extract, transform, load) berfungsi sesuai harapan. Laporan test coverage menunjukkan cakupan kode di atas 80% untuk menjamin keandalan pipeline.
-
-⚙️ Cara Menjalankan Proyek
-Ikuti langkah-langkah di bawah ini untuk menjalankan pipeline ETL di lingkungan lokal Anda.
-
-1. Clone Repositori
-Pertama, clone repositori ini ke mesin lokal Anda menggunakan Git.
-
-git clone [https://github.com/mMuhammadFauzanFachruziRauf/proyek-etl-fashion-dicoding](https://github.com/mMuhammadFauzanFachruziRauf/proyek-etl-fashion-dicoding)
+```bash
+git clone https://github.com/mMuhammadFauzanFachruziRauf/proyek-etl-fashion-dicoding.git
 cd proyek-etl-fashion-dicoding
+```
 
-2. Buat dan Aktifkan Virtual Environment
-Sangat disarankan untuk menggunakan virtual environment agar dependensi proyek tidak bercampur dengan instalasi Python global Anda.
+### 2. Setup Environment
 
+```bash
 # Buat virtual environment
 python -m venv venv
 
-# Aktifkan (untuk MacOS/Linux)
+# Aktifkan virtual environment
+# Untuk Windows:
+.\venv\Scripts\activate
+# Untuk MacOS/Linux:
 source venv/bin/activate
 
-# Aktifkan (untuk Windows)
-.\venv\Scripts\activate
-
-3. Instal Dependensi
-Instal semua pustaka Python yang dibutuhkan yang tercantum dalam file requirements.txt.
-
+# Install dependencies
 pip install -r requirements.txt
+```
 
-4. Konfigurasi
-Sebelum menjalankan pipeline, Anda perlu melakukan beberapa konfigurasi:
+### 3. Konfigurasi
 
-Google Sheets API: Siapkan file kredensial google-sheets-api.json Anda dan letakkan di direktori utama proyek. Pastikan akun layanan memiliki akses ke Google Sheet target.
+1. **Google Sheets API**:
+   - Siapkan file kredensial `google-sheets-api.json`
+   - Letakkan di direktori utama proyek
+   - Pastikan akun layanan memiliki akses ke Google Sheet target
 
-Koneksi Database: Atur detail koneksi database PostgreSQL (host, nama database, user, password) di dalam file main.py.
+2. **Database PostgreSQL**:
+   - Atur koneksi database di file `main.py`
+   - Sesuaikan parameter: host, database, user, password
 
-URL Google Sheet: Pastikan URL Google Sheet yang akan dituju sudah benar di dalam main.py.
+3. **Google Sheet URL**:
+   - Pastikan URL Google Sheet sudah benar di `main.py`
 
-⚡ Menjalankan Pipeline
-Setelah semua konfigurasi selesai, jalankan pipeline utama dengan perintah berikut:
+### 4. Menjalankan Pipeline
 
+```bash
 python main.py
+```
 
-Skrip akan menjalankan proses ETL secara berurutan dan menampilkan log status di terminal.
+## 🧪 Testing
 
-🧪 Menjalankan Tes
-Untuk memastikan semua fungsi berjalan dengan benar, Anda dapat menjalankan unit test yang telah disiapkan.
+Jalankan test suite untuk memastikan semua fungsi bekerja dengan benar:
 
-# Menjalankan semua unit test
+```bash
+# Menjalankan semua test
 python -m pytest tests/
 
-# Menjalankan tes dan melihat laporan coverage
+# Menjalankan test dengan coverage report
 python -m pytest --cov=utils tests/
+
+# Menghasilkan detailed coverage report
+python -m pytest --cov=utils --cov-report=html tests/
+```
+
+## 📁 Struktur Proyek
+
+```
+proyek-etl-fashion-dicoding/
+├── main.py                 # Skrip utama pipeline ETL
+├── requirements.txt        # Dependencies Python
+├── google-sheets-api.json  # Kredensial Google API (diabaikan di git)
+├── utils/
+│   ├── __init__.py
+│   ├── extract.py         # Modul ekstraksi data
+│   ├── transform.py       # Modul transformasi data
+│   └── load.py           # Modul loading data
+├── tests/
+│   ├── __init__.py
+│   ├── test_extract.py    # Test untuk modul extract
+│   ├── test_transform.py  # Test untuk modul transform
+│   └── test_load.py      # Test untuk modul load
+├── products.csv          # Output file CSV (dihasilkan otomatis)
+└── README.md            # Dokumentasi proyek
+```
+
+## 📖 Dokumentasi
+
+### Modul Extract
+Melakukan web scraping dari website fashion-studio.dicoding.dev untuk mendapatkan data produk fashion.
+
+### Modul Transform
+Membersihkan dan memproses data mentah:
+- Konversi format harga ke numerik
+- Penyesuaian tipe data
+- Pembersihan nilai kosong/rusak
+
+### Modul Load
+Menyimpan data yang telah diproses ke:
+- **CSV File**: `products.csv` di lokal
+- **Google Sheets**: Untuk kolaborasi tim
+- **PostgreSQL**: Untuk analisis data lanjutan
+
+## 🤝 Kontribusi
+
+Kontribusi selalu diterima! Silakan:
+1. Fork project ini
+2. Buat branch fitur Anda (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan Anda (`git commit -m 'Add AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
+
+## 📝 Lisensi
+
+Distributed under the MIT License. Lihat `LICENSE` untuk informasi lebih lanjut.
+
+## 🙏 Penghargaan
+
+Proyek ini dikembangkan sebagai bagian dari kelas [Belajar Fundamental Pemrosesan Data](https://www.dicoding.com/academies/630) di Dicoding Indonesia.
+
+---
+
+<div align="center">
+Dibuat dengan ❤️ oleh Muhammad Fauzan Fachruzi Rauf
+</div>
